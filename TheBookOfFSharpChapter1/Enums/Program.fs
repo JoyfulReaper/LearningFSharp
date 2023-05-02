@@ -9,3 +9,7 @@
 
 let firstDayOfTheWeek = DayOfWeek.Sunday
 printfn "The first day of the week is %s" (firstDayOfTheWeek.ToString())
+
+let someInt = 5
+let dayFive = enum<DayOfWeek> someInt
+printfn "The integral value of %i corresponds to %s in the DayOfWeek enum" someInt (dayFive.ToString())
