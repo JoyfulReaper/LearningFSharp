@@ -62,3 +62,6 @@ type MyException(message, category) =
     inherit exn(message)
     member x.Category = category
     override x.ToString() = sprintf "[%s] %s" x.Category x.Message
+
+exception RetryAttemptFailed of string * int
+exception RetryCountExceeded of string

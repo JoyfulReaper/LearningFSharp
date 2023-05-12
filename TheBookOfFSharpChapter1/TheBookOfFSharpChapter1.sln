@@ -17,7 +17,11 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Loops", "Loops\Loops.fsproj
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Branching", "Branching\Branching.fsproj", "{BE38F0E3-A3E5-4615-B9F4-A87188A1438B}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Exceptions", "Exceptions\Exceptions.fsproj", "{BA1611A9-88BA-453C-9CCF-E8209A9EF909}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Exceptions", "Exceptions\Exceptions.fsproj", "{BA1611A9-88BA-453C-9CCF-E8209A9EF909}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Classes", "Classes\Classes.fsproj", "{9D029DFC-8E05-4D65-B183-D7DCD94E4748}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ClassMembers", "ClassMembers\ClassMembers.fsproj", "{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +61,14 @@ Global
 		{BA1611A9-88BA-453C-9CCF-E8209A9EF909}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BA1611A9-88BA-453C-9CCF-E8209A9EF909}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BA1611A9-88BA-453C-9CCF-E8209A9EF909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D029DFC-8E05-4D65-B183-D7DCD94E4748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D029DFC-8E05-4D65-B183-D7DCD94E4748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D029DFC-8E05-4D65-B183-D7DCD94E4748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D029DFC-8E05-4D65-B183-D7DCD94E4748}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
