@@ -45,3 +45,27 @@ type Person4() =
 type Person4a(name) =
     member val Name = name
 
+
+// Indexed Propteries
+type Sentence(initial: string) =
+    let mutable words = initial.Split(' ')
+    let mutable text = initial
+    member x.Item
+        with get i = words.[i]
+        and set i v =
+            words[i] <- v
+            text <- System.String.Join(" ", words)
+    member x.Chars with get(i) = text.[i] // Any property can be an indexed property (Unlike C#)
+
+let s = Sentence "Don't forget to drink your Ovaltine"
+printfn "%s" s.[1] // Access with dot notation
+s.[1] <- "remember"
+printfn "%s" s.[1]
+
+printfn "%c" (s.Chars(0)) //Dot notation can only be used default indexed properties; access like a method
+
+// Setting properties as part of the constructor call
+type Person5() =
+    member val Name = "" with get, set
+
+let p = Person5(Name = "Dave")
