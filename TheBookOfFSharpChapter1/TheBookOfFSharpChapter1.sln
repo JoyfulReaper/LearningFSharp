@@ -23,6 +23,10 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Classes", "Classes\Classes.
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ClassMembers", "ClassMembers\ClassMembers.fsproj", "{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "ClassMethods", "ClassMethods\ClassMethods.fsproj", "{59621ECC-8244-42C6-B671-F7A7FF79C99B}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Events", "Events\Events.fsproj", "{54F3D1C5-65CC-43EC-9801-D3EEAA018D0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +73,14 @@ Global
 		{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1EE552DB-E8B7-4003-BFFF-65E075C3B8C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59621ECC-8244-42C6-B671-F7A7FF79C99B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59621ECC-8244-42C6-B671-F7A7FF79C99B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59621ECC-8244-42C6-B671-F7A7FF79C99B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59621ECC-8244-42C6-B671-F7A7FF79C99B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54F3D1C5-65CC-43EC-9801-D3EEAA018D0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54F3D1C5-65CC-43EC-9801-D3EEAA018D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54F3D1C5-65CC-43EC-9801-D3EEAA018D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54F3D1C5-65CC-43EC-9801-D3EEAA018D0F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
