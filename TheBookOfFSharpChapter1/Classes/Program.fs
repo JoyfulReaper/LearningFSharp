@@ -86,3 +86,11 @@ type Person7 (name, age) as this =
     member x.Age = age
 
 let someDude = Person7("SomeDude", 33)
+
+
+// Structs
+[<Struct>]
+type Circle(diameter : float) =
+    member x.getRadius() = diameter / 2.0
+    member x.Diameter = diameter
+    member x.GetArea() = Math.PI * (x.getRadius() ** 2)
