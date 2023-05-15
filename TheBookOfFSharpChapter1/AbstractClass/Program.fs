@@ -71,3 +71,7 @@ type TerminalNode(name : string) =
         raise (NotSupportedException(notSupportedMessage))
     override x.RemoveChild(n) =
         raise (NotSupportedException(notSupportedMessage))
+
+// Sealed Classes
+[<Sealed>]
+type NotInheritable() = class end
