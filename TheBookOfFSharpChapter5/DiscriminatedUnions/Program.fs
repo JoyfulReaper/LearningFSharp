@@ -142,3 +142,20 @@ let rec toHtml2 markup =
         HtmlString2 (sprintf "<%s>%s</%s>" tag (w.ToString()) tag)
     | EmptyElement (tag) -> HtmlString2 (sprintf "<%s />" tag)
     | Content (c) -> HtmlString2 (sprintf "%s" c)
+
+
+// Additional Members
+type Markup2 =
+| ContentElement of string * Markup2 list
+| EmptyElement of string
+| Content of string
+    member x.toHtml() =
+        match x with
+        | ContentElement (tag, children) ->
+            use w = new System.IO.StringWriter()
+            children
+                |> Seq.map (fun m -> m.toHtml())
+                |> Seq.iter(fun (HtmlString2(html)) -> w.Write(html))
+            HtmlString2 (sprintf "<%s>%s</%s>" tag (w.ToString()) tag)
+        | EmptyElement (tag) -> HtmlString2(sprintf "<%s />" tag)
+        | Content (c) -> HtmlString2 (sprintf "%s" c)
