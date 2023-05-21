@@ -3,17 +3,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33627.172
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FuncAndActionHelper", "FuncAndActionHelper\FuncAndActionHelper.fsproj", "{D4C94F72-4B09-4CF9-85C5-D93B34A02C31}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FuncAndActionHelper", "FuncAndActionHelper\FuncAndActionHelper.fsproj", "{D4C94F72-4B09-4CF9-85C5-D93B34A02C31}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Currying", "Currying\Currying.fsproj", "{2E8B2089-29D8-467E-9D87-947C0764D2EC}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Currying", "Currying\Currying.fsproj", "{2E8B2089-29D8-467E-9D87-947C0764D2EC}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Pipelining", "Pipelining\Pipelining.fsproj", "{066B443B-EFF7-4997-8475-29AB7EFA474E}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Pipelining", "Pipelining\Pipelining.fsproj", "{066B443B-EFF7-4997-8475-29AB7EFA474E}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "RecursiveFunctions", "RecursiveFunctions\RecursiveFunctions.fsproj", "{5BFE2BDE-40E8-4182-8160-43D169B3AEE0}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "RecursiveFunctions", "RecursiveFunctions\RecursiveFunctions.fsproj", "{5BFE2BDE-40E8-4182-8160-43D169B3AEE0}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FunctionalTypes", "FunctionalTypes\FunctionalTypes.fsproj", "{773DD773-B971-4DB9-B644-7BA493164898}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "FunctionalTypes", "FunctionalTypes\FunctionalTypes.fsproj", "{773DD773-B971-4DB9-B644-7BA493164898}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "DiscriminatedUnions", "DiscriminatedUnions\DiscriminatedUnions.fsproj", "{850F5D8C-003E-40BA-902C-D10A74060C79}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "DiscriminatedUnions", "DiscriminatedUnions\DiscriminatedUnions.fsproj", "{850F5D8C-003E-40BA-902C-D10A74060C79}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "LazyEvaluation", "LazyEvaluation\LazyEvaluation.fsproj", "{E45DAA2F-2D3D-45E6-BDDA-96EEE878150C}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sequences", "Sequences\Sequences.fsproj", "{F53FD885-70EB-4403-BE1A-F7B96EE9347C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +49,14 @@ Global
 		{850F5D8C-003E-40BA-902C-D10A74060C79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{850F5D8C-003E-40BA-902C-D10A74060C79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{850F5D8C-003E-40BA-902C-D10A74060C79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E45DAA2F-2D3D-45E6-BDDA-96EEE878150C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E45DAA2F-2D3D-45E6-BDDA-96EEE878150C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E45DAA2F-2D3D-45E6-BDDA-96EEE878150C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E45DAA2F-2D3D-45E6-BDDA-96EEE878150C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F53FD885-70EB-4403-BE1A-F7B96EE9347C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F53FD885-70EB-4403-BE1A-F7B96EE9347C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F53FD885-70EB-4403-BE1A-F7B96EE9347C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F53FD885-70EB-4403-BE1A-F7B96EE9347C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
