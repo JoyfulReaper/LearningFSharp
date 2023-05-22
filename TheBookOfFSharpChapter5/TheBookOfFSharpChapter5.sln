@@ -19,6 +19,8 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "LazyEvaluation", "LazyEvalu
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sequences", "Sequences\Sequences.fsproj", "{F53FD885-70EB-4403-BE1A-F7B96EE9347C}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Arrays", "Arrays\Arrays.fsproj", "{268DF86B-D10E-493A-A281-6ADEAC4C7964}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{F53FD885-70EB-4403-BE1A-F7B96EE9347C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F53FD885-70EB-4403-BE1A-F7B96EE9347C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F53FD885-70EB-4403-BE1A-F7B96EE9347C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{268DF86B-D10E-493A-A281-6ADEAC4C7964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{268DF86B-D10E-493A-A281-6ADEAC4C7964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{268DF86B-D10E-493A-A281-6ADEAC4C7964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{268DF86B-D10E-493A-A281-6ADEAC4C7964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
