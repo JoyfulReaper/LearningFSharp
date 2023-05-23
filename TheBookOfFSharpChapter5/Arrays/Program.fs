@@ -44,7 +44,49 @@ Array.iter (printfn "%s") lines.[1..3]
 
 
 // Sorting Arrays
+// sortInPlace
 let r = System.Random()
 let ints = Array.init 5 (fun _ -> r.Next(-100, 100))
 ints |> Array.sortInPlace
 Array.iter (printfn "%d") ints
+
+let movies2 = [| ("the terminator", "1984")
+                 ("predator", "1987")
+                 ("commando", "1985")
+                 ("total recall", "1990")
+                 ("conan the destroyer", "1984") |]
+
+// Sorting by year
+// Easiest way to sort by year is to just project the year value via sortInPlaceBy
+movies2 |> Array.sortInPlaceBy (fun (_, year) -> year)
+
+// Directly compare two elements with sortInPlaceWith
+movies2 |> Array.sortInPlaceWith (fun (_,y1) (_,y2) -> if y1 < y2 then -1
+                                                       elif y1 > y2 then 2
+                                                       else 0)
+
+
+// Multidimensional Arrays
+let movies3 = array2D [| [| "The Terminator"; "1984" |]
+                         [| "Predator"; "1987" |]
+                         [| "Commando"; "1985" |]
+                         [| "The Running Man"; "1987" |]
+                         [| "True Lies"; "1994" |]
+                         [| "Last Action Hero"; "1993"|]
+                         [| "Total Recall"; "1990" |]
+                         [| "Conan the Barbarian"; "1982" |]
+                         [| "Conan the Destroyer"; "1984" |] 
+                         [| "Hercules in New York"; "1969"|] |]
+
+printfn "%s" movies3.[2,1]
+
+// Slice expressions to slice the movies array vertivally to create new arrays
+// containing only the movie names or only the years
+
+let movieNames = movies3.[0..,0..0]
+let movieYears = movies3.[0..,1..1]
+
+// Can also slice arrays horizontally
+let moviesSubset = movies3.[1..3,0..]
+
+// Jagged Arrays - pg 148
