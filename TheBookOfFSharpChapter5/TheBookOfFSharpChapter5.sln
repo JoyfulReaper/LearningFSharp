@@ -17,9 +17,11 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "DiscriminatedUnions", "Disc
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "LazyEvaluation", "LazyEvaluation\LazyEvaluation.fsproj", "{E45DAA2F-2D3D-45E6-BDDA-96EEE878150C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Sequences", "Sequences\Sequences.fsproj", "{F53FD885-70EB-4403-BE1A-F7B96EE9347C}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Sequences", "Sequences\Sequences.fsproj", "{F53FD885-70EB-4403-BE1A-F7B96EE9347C}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Arrays", "Arrays\Arrays.fsproj", "{268DF86B-D10E-493A-A281-6ADEAC4C7964}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Arrays", "Arrays\Arrays.fsproj", "{268DF86B-D10E-493A-A281-6ADEAC4C7964}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Lists", "Lists\Lists.fsproj", "{91DD995E-4276-4B4C-89E3-617AC38C6929}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{268DF86B-D10E-493A-A281-6ADEAC4C7964}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{268DF86B-D10E-493A-A281-6ADEAC4C7964}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{268DF86B-D10E-493A-A281-6ADEAC4C7964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91DD995E-4276-4B4C-89E3-617AC38C6929}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91DD995E-4276-4B4C-89E3-617AC38C6929}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91DD995E-4276-4B4C-89E3-617AC38C6929}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91DD995E-4276-4B4C-89E3-617AC38C6929}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
