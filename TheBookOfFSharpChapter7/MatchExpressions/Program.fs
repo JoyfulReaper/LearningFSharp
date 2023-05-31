@@ -171,3 +171,85 @@ let detectColorSpace (cs : obj) =
     | :? RgbColor -> "RGB"
     | :? CmykColor -> "CMYK"
     | :? HslColor -> "HSL"
+    | _ -> failwith "Unrecognized"
+
+// As Patterns:
+// Allows you to match against a value and bind it to a name in a single step
+let x, y as point = (10, 20)
+
+let locatePoint2 =
+    function
+    | (0, 0) as p -> sprintf "%A is at the origin" p
+    | (_, 0) as p -> sprintf "%A is on the x-axis" p
+    | (0, _) as p -> sprintf "%A is on the y-axis" p
+    | (x, y) -> sprintf "Point (%i, %i)" x y
+
+// Conjunction Patterns / And Patterns
+// Useful for extracting values when another pattern is matched
+let locatePoint3 =
+    function
+    | (0, 0) as p -> sprintf "%A is at the origin" p
+    | (x, y) & (_, 0) -> sprintf "(%i, %i) is on the x-axis" x y
+    | (x, y) & (0, _) -> sprintf "(%i, %i) is on the y-axis" x y
+    | (x, y) -> sprintf "Point (%i, %i)" x y
+
+// Disjunctive Patterns / Or Patterns
+// Multiple patterns should run the same code
+let locatePoint4 =
+    function
+    | (0,0) as p -> sprintf "%A is at the origin" p
+    | (0, _) | (_, 0) as p -> sprintf "%A is on an axis" p
+    | p -> sprintf "Point %A" p
+
+
+// Active Patterns
+// Active patterns are functions that return a tuple of a Boolean and a value. The Boolean indicates whether the pattern matched, and the value is the result of the pattern match.
+
+// Active recognizer pattern
+let (|Fizz|Buzz|FizzBuzz|Other|) n =
+    match (n % 3, n % 5) with
+    | 0, 0 -> FizzBuzz
+    | 0, _ -> Fizz
+    | _, 0 -> Buzz
+    | _ -> Other n
+
+// Pattern matching with active patterns
+let fizzBuzz =
+   function
+    | Fizz -> "Fizz"
+    | Buzz -> "Buzz"
+    | FizzBuzz -> "FizzBuzz"
+    | Other n -> n.ToString()
+
+seq { 1..100 }
+|> Seq.map fizzBuzz
+|> Seq.iter (printfn "%s")
+
+// Partial Active Patterns
+let (|Fizz|_|)n = if n % 3 = 0 then Some() else None
+let (|Buzz|_|)n = if n % 5 = 0 then Some() else None
+
+let fizzBuzzPartial =
+    function
+    | Fizz & Buzz -> "FizzBuzz"
+    | Fizz -> "Fizz"
+    | Buzz -> "Buzz"
+    | n -> n.ToString()
+
+seq { 1..100 }
+|> Seq.map fizzBuzzPartial
+|> Seq.iter (printfn "%s")
+
+// Parameterized Active Patterns
+let (|DivisibleBy|_|) d n = if n % d = 0 then Some DivisibleBy else None
+
+let fizzBuzzParameterized =
+    function
+    | DivisibleBy 3 & DivisibleBy 5 -> "FizzBuzz"
+    | DivisibleBy 3 -> "Fizz"
+    | DivisibleBy 5 -> "Buzz"
+    | n -> n.ToString()
+
+seq { 1..100 }
+|> Seq.map fizzBuzzParameterized
+|> Seq.iter (printfn "%s")
