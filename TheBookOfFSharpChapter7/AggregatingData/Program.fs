@@ -76,3 +76,44 @@ let filmsContainsKindergartenCop3 =
 let didAFilmGrossOver50m =
     query { for f in QuerySource.films do
             exists (f.gross ?>= 50000000.0) }
+
+let allFilmsGrossed50m =
+    query { for f in QuerySource.films do 
+            all (f.gross ?>= 50000000.0) }
+
+printfn ("%b") allFilmsGrossed50m
+
+
+// Inner Join
+let filmsWithActors =
+    query { for f in QuerySource.films do
+            join fa in QuerySource.filmActors on (f.id = fa.filmId) 
+            join a in QuerySource.actors on (fa.actorId = a.id) 
+            select (f.name, f.releaseYear, a.lastName, a.firstName) }
+
+Seq.iter (fun (n, r, f, l) -> printfn "%s %i %s %s" n r f l) filmsWithActors
+
+// Group Join
+let actorsByFilm =
+    query { for f in QuerySource.films do
+            groupJoin fa in QuerySource.filmActors on (f.id = fa.filmId) into junction
+            select (f.name, query { for j in junction do 
+                                    join a in QuerySource.actors on (j.actorId = a.id)
+                                    select (a.lastName, a.firstName) })
+    }
+
+// Left outer join + Null issues - pg 217-218
+printfn "Left outer join with null awareness"
+let actorsFilmActors = 
+    query { for a in QuerySource.actors do 
+            join fa in QuerySource.filmActors on (a.id = fa.actorId)
+            select (fa.filmId, a) }
+
+let res = query { for f in QuerySource.films do
+                  leftOuterJoin (id, a) in actorsFilmActors on (f.id = id) into junction
+                  for x in junction do
+                  select (match (x :> obj) with
+                          | null -> (f.name, "", "")
+                          | _ -> let _, a = x
+                                 (f.name, a.lastName, a.firstName))
+              } |> Seq.iter (printfn "%O")
