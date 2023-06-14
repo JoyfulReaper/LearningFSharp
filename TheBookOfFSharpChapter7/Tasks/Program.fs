@@ -111,4 +111,24 @@ let taskWithCancellation (cancelDelay : int) (taskDelay : int) =
   | ex -> printfn "%O" ex
   printfn "Done";;
 
-taskWithCancellation 1000 3000;;
+taskWithCancellation 1000 3000
+
+
+// Handling Exceptions - pg 240
+let flattenedAggregateExceptionExample() =
+  try
+    raise (AggregateException(
+            NotSupportedException(),
+            ArgumentException(),
+            AggregateException(
+              ArgumentNullException(),
+              NotImplementedException())))               
+  with
+  | :? AggregateException as ex ->
+       ex.Flatten().Handle(
+        Func<_, _>(
+          function
+          | :? NotImplementedException as ex2 -> printfn "%O" ex2; true
+          | _ -> true));;
+
+flattenedAggregateExceptionExample();;
