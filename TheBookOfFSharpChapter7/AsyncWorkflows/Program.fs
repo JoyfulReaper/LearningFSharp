@@ -47,3 +47,17 @@ open System.Text.RegularExpressions;;
                       |> printfn "%s...");;
 
 // Async.CancelDefaultToken() - Cancelling async workflow using the default token
+
+// Async.StartAsTask() - Start a task using the TPL - page 248
+
+// Awaiting a TPL Task
+let getPageAsync (uri: string) =
+    async {
+        use client = new System.Net.WebClient()
+        return! Async.AwaitTask(client.DownloadStringTaskAsync uri)
+    }
+
+async {
+    let! result = getPageAsync "http://nostarch.com"
+    result.Substring(0, 100) |> printfn "%s"
+} |> Async.Start

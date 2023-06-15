@@ -27,6 +27,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Tasks", "Tasks\Tasks.fsproj
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AsyncWorkflows", "AsyncWorkflows\AsyncWorkflows.fsproj", "{ACD226E2-7BBE-403B-A7EB-84CB7F9DC657}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "AgentBasedProgramming", "AgentBasedProgramming\AgentBasedProgramming.fsproj", "{0161EDF6-632F-4F1E-9076-51FE2469FB5C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -81,6 +83,10 @@ Global
 		{ACD226E2-7BBE-403B-A7EB-84CB7F9DC657}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ACD226E2-7BBE-403B-A7EB-84CB7F9DC657}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ACD226E2-7BBE-403B-A7EB-84CB7F9DC657}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0161EDF6-632F-4F1E-9076-51FE2469FB5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0161EDF6-632F-4F1E-9076-51FE2469FB5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0161EDF6-632F-4F1E-9076-51FE2469FB5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0161EDF6-632F-4F1E-9076-51FE2469FB5C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
