@@ -1,4 +1,6 @@
-﻿// Tuple (AND type)
+﻿module part1
+
+// Tuple (AND type)
 type Customer = string * bool * bool
 
 let fred = ("Fred", true, true)

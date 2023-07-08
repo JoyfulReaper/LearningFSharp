@@ -1,4 +1,4 @@
-﻿module part2 =
+﻿module part2
     type RegisteredCustomer =
         { Id: string
           IsEligible: bool }
@@ -32,7 +32,7 @@
         let discount =
             match customer with
             | Registered c when c.IsEligible && spend >= 100.0M -> spend * 0.1M
-            | _ -> 0.0M
+            | _ -> 0.0M // May prevent the compiler from warning if you add additions to the discriminated union.
         spend - discount
 
     let john = Registered { Id = "John"; IsEligible = true}
