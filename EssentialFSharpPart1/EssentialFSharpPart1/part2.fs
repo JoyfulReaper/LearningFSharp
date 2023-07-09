@@ -1,4 +1,5 @@
 ﻿module part2
+    // Records (AND TYPE)
     type RegisteredCustomer =
         { Id: string
           IsEligible: bool }
@@ -6,7 +7,7 @@
     type UnregisteredCustomer =
         { Id: string }
 
-    // Discriminated Union
+    // Discriminated Union (OR TYPE)
     type Customer =
         | Registered of RegisteredCustomer
         | Guest of UnregisteredCustomer

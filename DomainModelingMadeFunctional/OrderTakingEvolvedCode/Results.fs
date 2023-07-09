@@ -72,12 +72,12 @@ module Result =
         let (<*>) = apply
         f <!> x1 <*> x2
 
-    (* Example without the operators:
-    let lift2 f x1 x2 =
-    let mappedX1 = Result.map f x1
-    let result = apply mappedX1 x2
-    result
-    *)
+    // Example without the operators:
+    let lift2_2 f x1 x2 =
+        let mappedX1 = Result.map f x1
+        let result = apply mappedX1 x2
+        result
+    
 
     /// Lift a three parameter function to use Result parameters
     let lift3 f x1 x2 x3 =
