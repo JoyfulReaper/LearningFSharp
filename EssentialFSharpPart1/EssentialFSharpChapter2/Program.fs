@@ -77,6 +77,9 @@ let addLambda = fun x y -> x + y
 
 // Generic Function that can take any function with two input parameters
 // ('a -> 'b -> 'c) -> 'a -> 'b -> 'c
+// first argument to apply (f) is a function that takes arguments 'a and 'b and returns 'c ('a -> 'b -> 'C) - Type signature of function that apply expects
+// second argument to apply (x) is of type 'a, first argument passed to function f
+// third argument to apply (y) is of type 'b, second argument passed to f
 let apply f x y = f x y
 
 let sum = apply add 1 4
@@ -197,3 +200,12 @@ let logError = log2 Error // string -> unit
 
 log2 Error "Curried function"
 logError "Partially Applied Function"
+
+
+let calculateTotal2 customer =
+    fun spend ->
+        let discount =
+            match customer with
+            | Registered (IsEligible = true) when spend >= 100M -> spend * 0.1M
+            | _ -> 0.0M
+        spend - discount

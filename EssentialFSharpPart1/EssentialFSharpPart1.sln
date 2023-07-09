@@ -5,7 +5,9 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpPart1", "EssentialFSharpPart1\EssentialFSharpPart1.fsproj", "{AC18E830-814C-45A7-8ADE-4D27795AAD2E}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EssentialFSharpChapter2", "EssentialFSharpChapter2\EssentialFSharpChapter2.fsproj", "{FA808571-17DF-497F-ACDA-242A9FE7FBF8}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpChapter2", "EssentialFSharpChapter2\EssentialFSharpChapter2.fsproj", "{FA808571-17DF-497F-ACDA-242A9FE7FBF8}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EssentialFSharpChapter3", "EssentialFSharpChapter3\EssentialFSharpChapter3.fsproj", "{B452C768-D9C2-4711-9CFE-578C2B6C2890}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{FA808571-17DF-497F-ACDA-242A9FE7FBF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FA808571-17DF-497F-ACDA-242A9FE7FBF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FA808571-17DF-497F-ACDA-242A9FE7FBF8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B452C768-D9C2-4711-9CFE-578C2B6C2890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B452C768-D9C2-4711-9CFE-578C2B6C2890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B452C768-D9C2-4711-9CFE-578C2B6C2890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B452C768-D9C2-4711-9CFE-578C2B6C2890}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
