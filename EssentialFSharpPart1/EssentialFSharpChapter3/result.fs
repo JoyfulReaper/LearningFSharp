@@ -120,22 +120,32 @@ let upgradeCustomer2 customer =
 let upgradeCustomer3 customer =
     customer
     |> getPurchases
-    |> map tryPromoteToVip
-    |> function
-        | Ok x -> increaseCreditIfVip x
-        | Error ex -> Error ex
+    |> map tryPromoteToVip // Map Takes a function (tryPromoteToVip) that operates on the inner value (Customer * decimal), but does not accept or return the monad itself, and wraps the output in a new instance of the same monadic type
+    |> bind increaseCreditIfVip // Bind Takes a function (increaseCreditIfVip) that returns a monadic value. That function operates on the inner value of the agument monad, which itself returns a new monad.
+
+let upgradeCustomerProcedural customer =
+    let purchasedResult = getPurchases customer
+    let promotedResult = map tryPromoteToVip purchasedResult
+    let increaseResult = bind increaseCreditIfVip promotedResult
+    increaseResult
+
+let upgradeCustomerFinal customer =
+    customer
+    |> getPurchases
+    |> Result.map tryPromoteToVip
+    |> Result.bind increaseCreditIfVip
 
 let customerVIP = { Id = 1; IsVip = true; Credit = 0.0M }
 let customerSTD = { Id = 2; IsVip = false; Credit = 100.0M }
 
 let assertVIP =
-    upgradeCustomer customerVIP = Ok { Id = 1; IsVip = true; Credit = 100.0M }
+    upgradeCustomerFinal customerVIP = Ok { Id = 1; IsVip = true; Credit = 100.0M }
 
 let assertSTDtoVIP =
-    upgradeCustomer customerVIP = Ok { Id = 2; IsVip = true; Credit = 2000.0M }
+    upgradeCustomerFinal customerVIP = Ok { Id = 2; IsVip = true; Credit = 200.0M }
 
 let assertSTD =
-    upgradeCustomer { customerSTD with Id = 3; Credit = 50.0M } = Ok { Id = 3; IsVip = false; Credit = 100.0M }
+    upgradeCustomerFinal { customerSTD with Id = 3; Credit = 50.0M } = Ok { Id = 3; IsVip = false; Credit = 100.0M }
 
 //////////////////////////
 

@@ -8,6 +8,7 @@
   <ItemGroup>
     <Compile Include="option.fs" />
     <Compile Include="result.fs" />
+    <Compile Include="result2.fs" />
   </ItemGroup>
 
 </Project>
