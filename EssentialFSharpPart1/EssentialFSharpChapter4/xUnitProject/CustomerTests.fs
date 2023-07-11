@@ -2,6 +2,7 @@
 
 open Xunit
 open Myproject.Customer
+open FsUnit.Xunit
 
 module ``When upgrading customer`` =
     
@@ -15,7 +16,8 @@ module ``When upgrading customer`` =
     let ``should give VIP customer more credit`` () =
         let expected = { customerVIP with Credit = customerVIP.Credit + 100M }
         let actual = upgradeCustomer customerVIP
-        Assert.Equal(expected, actual)
+        //Assert.Equal(expected, actual)
+        actual |> should equal expected
 
     // let assertSTDtoVIP =
     //    let expected = {Id = 2; IsVip = true; Credit = 200.0M }
@@ -24,7 +26,8 @@ module ``When upgrading customer`` =
     let ``should convert eligible STD customer to VIP`` () =
         let expected = { Id = 2; IsVip = true; Credit = 200M }
         let actual = upgradeCustomer customerSTD
-        Assert.Equal(expected, actual)
+        //Assert.Equal(expected, actual)
+        actual |> should equal expected
 
     // let assertSTD =
     //   let expected = {Id = 3; IsVip = false; Credit = 100.0M }
@@ -33,7 +36,8 @@ module ``When upgrading customer`` =
     let ``should not upgrade ineligible STD customer to VIP`` () =
         let expected = {Id = 3; IsVip = false; Credit = 100.0M }
         let actual = upgradeCustomer { customerSTD with Id = 3; Credit = 50.0M }
-        Assert.Equal(expected, actual)
+        // Assert.Equal(expected, actual)
+        actual |> should equal expected
 
 (* Code from earlier in the chapter
 namespace MyProjectTests
