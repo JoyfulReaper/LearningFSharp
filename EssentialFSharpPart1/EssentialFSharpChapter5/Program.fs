@@ -176,3 +176,6 @@ nums
 // Recomended version
 nums
 |> List.sumBy(fun v -> if v % 2 = 1 then (v * v) else 0)
+
+
+/// A Practical Example
