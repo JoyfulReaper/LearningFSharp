@@ -11,7 +11,9 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpChapter3", "
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpChapter5", "EssentialFSharpChapter5\EssentialFSharpChapter5.fsproj", "{505BB4A5-0855-41F2-BCA0-246C0B8C579B}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EssentialFSharpChapter6", "EssentialFSharpChapter6\EssentialFSharpChapter6.fsproj", "{B7EF03A4-EFE9-4ED4-AD29-7551B9C863BA}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpChapter6", "EssentialFSharpChapter6\EssentialFSharpChapter6.fsproj", "{B7EF03A4-EFE9-4ED4-AD29-7551B9C863BA}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EssentialFSharpChapter7", "EssentialFSharpChapter7\EssentialFSharpChapter7.fsproj", "{3AF78610-9730-4128-860C-E3A0A2C127D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{B7EF03A4-EFE9-4ED4-AD29-7551B9C863BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7EF03A4-EFE9-4ED4-AD29-7551B9C863BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7EF03A4-EFE9-4ED4-AD29-7551B9C863BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF78610-9730-4128-860C-E3A0A2C127D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF78610-9730-4128-860C-E3A0A2C127D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF78610-9730-4128-860C-E3A0A2C127D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF78610-9730-4128-860C-E3A0A2C127D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
