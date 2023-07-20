@@ -1,6 +1,7 @@
 ﻿open System
 open System.IO
 open System.Text.RegularExpressions
+open FsToolkit.ErrorHandling.ValidationCE
 
 type Customer = {
     CustomerId : string
@@ -161,12 +162,57 @@ let validate (input:Customer) : Result<ValidatedCustomer, ValidationError list> 
     | [] -> Ok (create (customerId |> getValue) (email |> getValue) (isEligible |> getValue) (isRegistered |> getValue) (dateRegistered |> getValue) (discount|> getValue))
     | _ -> Error errors
 
+
+let validate' (input:Customer) : Result<ValidatedCustomer, ValidationError list> =
+    validation {
+        let! customerId =
+            input.CustomerId
+            |> validateCustomerId
+            |> Result.mapError (fun ex -> [ex])
+        and! email =
+            input.Email
+            |> validateEmail
+            |> Result.mapError (fun ex -> [ex])
+        and! isEligible =
+            input.IsEligible
+            |> validateIsEligible
+            |> Result.mapError (fun ex -> [ex])
+        and! isRegistered =
+            input.IsRegistered
+            |> validateIsRegistered
+            |> Result.mapError (fun ex -> [ex])
+        and! dateRegistered =
+            input.DateRegistered
+            |> validateDateRegistered
+            |> Result.mapError (fun ex -> [ex])
+        and! discount =
+            input.Discount
+            |> validateDiscount
+            |> Result.mapError List.singleton
+
+        return create customerId email isEligible isRegistered dateRegistered discount // called only if there are no errors
+    }
+
+
+(*
+let validate' (input:Customer) : Result<ValidatedCustomer, ValidationError list> =
+    // Alternate -- pretend each validate function returns a list of validation errors
+    let customerId = input.CustomerId |> validateCustomerId
+    let email = input.Email |> validateEmail 
+    let isEligible = input.IsEligible |> validateIsEligible
+    let isRegistered = input.IsRegistered |> validateDateRegistered
+    let dateRegistered = input.IsRegistered |> validateIsRegistered
+    let discount = input.Discount |> validateDiscount
+
+    create customerId email isEligible isRegistered dateRegistered discount
+*)
+
 let parse (data: string seq) =
     data
     |> Seq.skip 1
     |> Seq.map parseLine
     |> Seq.choose id
-    |> Seq.map validate
+    |> Seq.map validate'
 
 let output data =
     data
