@@ -6,10 +6,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="code2.fsx" />
-    <None Include="code.fsx" />
+    <None Include="Coordinate.fsx" />
+    <Compile Include="RecentlyUsedList.fsx" />
+    <None Include="FizzBuzz.fsx" />
   </ItemGroup>
-
-  <ItemGroup />
 
 </Project>
