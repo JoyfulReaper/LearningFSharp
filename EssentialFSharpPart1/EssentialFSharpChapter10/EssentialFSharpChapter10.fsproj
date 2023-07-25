@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="expression.fsx" />
     <None Include="Coordinate.fsx" />
     <Compile Include="RecentlyUsedList.fsx" />
     <None Include="FizzBuzz.fsx" />
