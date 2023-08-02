@@ -10,17 +10,13 @@ open GiraffeExample.TodoStore
 open GiraffeExample
 
 let indexView =
-    html [] [
-        head [] [
-            title [] [str "Giraffe Example"]
-        ]
-        body [] [
-            h1 [] [str "I |> F#"]
-            p [_class "some-css-class"; _id "someId"] [
-                str "Hello World from the Giraffe View Engine"
-              ]
+    [
+        h1 [] [str "I |> F#"]
+        p [_class "some-css-class"; _id "someId"] [
+            str "Hello World from the Giraffe View Engine"
         ]
     ]
+    |> Shared.masterPage "Giraffe View Engine Example"
 
 let sayHelloNameHandler (name:string) : HttpHandler =
     fun (next:HttpFunc) (ctx:HttpContext) ->
@@ -40,7 +36,7 @@ let apiRoutes =
 let endpoints =
     [
         GET [
-            route "/" (htmlView indexView)
+            route "/" (htmlView (Todos.Views.todoView Todos.Data.todoList))
         ]
         subRoute "/api" apiRoutes
         subRoute "/api/todo" Todos.apiTodoRoutes
@@ -54,6 +50,7 @@ let notFoundHandler =
 let configureApp (appBuilder : IApplicationBuilder) =
     appBuilder
         .UseRouting()
+        .UseStaticFiles()
         .UseGiraffe(endpoints)
         .UseGiraffe(notFoundHandler)
 
