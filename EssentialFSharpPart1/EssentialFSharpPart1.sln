@@ -25,7 +25,9 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpChapter11", 
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpChapter12", "EssentialFSharpChapter12\EssentialFSharpChapter12.fsproj", "{A24A2CDB-E2FA-4530-B105-31A14DB68911}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EssentialFSharpChapter13", "EssentialFSharpChapter13\EssentialFSharpChapter13.fsproj", "{CEFA9456-5F50-4F5A-9A0C-A647A841352E}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentialFSharpChapter13", "EssentialFSharpChapter13\EssentialFSharpChapter13.fsproj", "{CEFA9456-5F50-4F5A-9A0C-A647A841352E}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "EssentialFSharpChapter14", "EssentialFSharpChapter14\EssentialFSharpChapter14.fsproj", "{253F6DB2-58F6-4D47-8618-01423B1E9704}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -81,6 +83,10 @@ Global
 		{CEFA9456-5F50-4F5A-9A0C-A647A841352E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CEFA9456-5F50-4F5A-9A0C-A647A841352E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CEFA9456-5F50-4F5A-9A0C-A647A841352E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{253F6DB2-58F6-4D47-8618-01423B1E9704}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{253F6DB2-58F6-4D47-8618-01423B1E9704}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{253F6DB2-58F6-4D47-8618-01423B1E9704}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{253F6DB2-58F6-4D47-8618-01423B1E9704}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
