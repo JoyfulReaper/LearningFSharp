@@ -6,15 +6,23 @@ open System
 // Helpers for Result type and AsyncResult type
 //==============================================
 
-/// Functions for Result tyoe (functor and monad)
-[<RequireQualifiedAccess>] // RequireQualifiedAccess forces the `Result.xxx` prefix to be used
+(*
+/// The Result type represents a choice between success and failure
+type Result<'success, 'failure> = 
+    | Ok of 'success
+    | Error of 'failure
+*)
+
+/// Functions for Result type (functor and monad).
+/// For applicatives, see Validation.
+[<RequireQualifiedAccess>]  // RequireQualifiedAccess forces the `Result.xxx` prefix to be used
 module Result =
     
     /// Pass in a function to handle each case of `Result`
     let bimap onSuccess onError xR =
-        match xR with
+       match xR with
         | Ok x -> onSuccess x
-        | Error err -> onError err
+        | Error e -> onError e
 
     (*
     let map f result = 
@@ -32,34 +40,31 @@ module Result =
         | Ok success -> f success
         | Error err -> Error err
     *)
-
-    // The `map`, `mapError` and `bind` functions are in a different module in F# 4.1 and newer (from VS2017),
-    // so these aliases make them available in this module.
     let map = Result.map
     let mapError = Result.mapError
     let bind = Result.bind
 
     // Like `map` but with a unit-returning function
-    let iter (f: _ -> unit) result =
+    let iter (f : _ -> unit) result =
         map f result |> ignore
 
     /// Apply a Result<fn> to a Result<x> monadically
     let apply fR xR =
         match fR, xR with
-        | Ok f, Ok x -> Ok(f x)
+        | Ok f, Ok x -> Ok (f x)
         | Error err1, Ok _ -> Error err1
         | Ok _, Error err2 -> Error err2
         | Error err1, Error _ -> Error err1
 
-    /// Combine a list of results, monadically
+    // combine list of result, monadically
     let sequence aListOfResults =
-        let (<*>) = apply // monadic
+        let (<*>) = apply
         let (<!>) = map
         let cons head tail = head::tail
         let consR headR tailR = cons <!> headR <*> tailR
-        let initialValue = Ok [] // Empty list inside Result
+        let initialValue = Ok [] // empty list inside Result
 
-        // Loop through the list, prepending each element
+        // loop through the list, prepending each element
         // to the initial value
         List.foldBack consR aListOfResults initialValue
 
@@ -71,13 +76,6 @@ module Result =
         let (<!>) = map
         let (<*>) = apply
         f <!> x1 <*> x2
-
-    // Example without the operators:
-    let lift2_2 f x1 x2 =
-        let mappedX1 = Result.map f x1
-        let result = apply mappedX1 x2
-        result
-    
 
     /// Lift a three parameter function to use Result parameters
     let lift3 f x1 x2 x3 =
@@ -91,11 +89,17 @@ module Result =
         let (<*>) = apply
         f <!> x1 <*> x2 <*> x3 <*> x4
 
+    /// Apply a monadic function with two parameters
+    let bind2 f x1 x2 = lift2 f x1 x2 |> bind id
+
+    /// Apply a monadic function with three parameters
+    let bind3 f x1 x2 x3 = lift3 f x1 x2 x3 |> bind id
+
     //-----------------------------------
     // Predicates
 
     /// Predicate that returns true on success
-    let isOk = 
+    let isOk =
         function
         | Ok _ -> true
         | Error _ -> false
@@ -104,22 +108,31 @@ module Result =
     let isError xR =
         xR |> isOk |> not
 
-    /// Life a given predicate into a predicate that works on Results
+    /// Lift a given predicate into a predicate that works on Results
     let filter pred =
         function
         | Ok x -> pred x
         | Error _ -> true
-        
+
     //-----------------------------------
     // Mixing simple values and results
 
-    /// Apply a monadic function to an Result<x option>
+    /// On success, return the value. On error, return a default value
+    let ifError defaultValue =
+        function
+        | Ok x -> x
+        | Error _ -> defaultValue
+
+    //-----------------------------------
+    // Mixing options and results
+
+    /// Apply a monadic function to a Result<x option>
     let bindOption f xR =
         match xR with
         | Some x -> f x |> map Some
         | None -> Ok None
 
-    /// Convert an Option into a Result. If none, use the passed-in errorValue 
+    /// Convert an Option into a Result. If none, use the passed-in errorValue
     let ofOption errorValue opt =
         match opt with
         | Some v -> Ok v
@@ -131,8 +144,8 @@ module Result =
         | Ok v -> Some v
         | Error _ -> None
 
-    /// Convert the Error case into an Option 
-    /// (useful with List.choose to find all errors in a list of Results)
+    /// Convert the Error case into an option
+    /// (useful with List.choose to find all error in a list of Results)
     let toErrorOption =
         function
         | Ok _ -> None
@@ -144,7 +157,7 @@ module Result =
 
 [<AutoOpen>]
 module ResultComputationExpression =
-
+    
     type ResultBuilder() =
         member __.Return(x) = Ok x
         member __.Bind(x, f) = Result.bind f x
@@ -158,7 +171,7 @@ module ResultComputationExpression =
         member this.While(guard, body) =
             if not (guard())
             then this.Zero()
-            else this.Bind( body(), fun () ->
+            else this.Bind(body(), fun () ->
                 this.While(guard, body))
 
         member this.TryWith(body, handler) =
@@ -173,38 +186,15 @@ module ResultComputationExpression =
             let body' = fun () -> body disposable
             this.TryFinally(body', fun () ->
                 match disposable with
-                | null -> ()
-                | disp -> disp.Dispose())
+                    | null -> ()
+                    | disp -> disp.Dispose())
 
         member this.For(sequence:seq<_>, body) =
             this.Using(sequence.GetEnumerator(), fun enum ->
                 this.While(enum.MoveNext,
                     this.Delay(fun () -> body enum.Current)))
 
-        member this.Combine (a,b) =
+        member this.Combine (a, b) =
             this.Bind(a, fun () -> b())
 
-    let result = ResultBuilder()
-
-//==============================================
-// The `Validation` type is the same as the `Result` type but with a *list* for failures
-// rather than a single value. This allows `Validation` types to be combined
-// by combining their errors ("applicative-style")
-//==============================================
-
-type Validation<'Success, 'Failure> =
-    Result<'Success, 'Failure list>
-
-/// Functions for the `Validation` type (mostly applicative)
-[<RequireQualifiedAccess>]  // RequireQualifiedAccess forces the `Validation.xxx` prefix to be used
-module Validation =
-    
-    /// Apply a Validation<fn> to a Validation<x> applicatively
-    let apply (fV:Validation<_,_>) (xV:Validation<_,_>) :Validation<_,_> =
-        match fV, xV with
-        | Ok f, Ok x -> Ok (f x)
-        | Error errs1, Ok _ -> Error errs1
-        | Ok _, Error errs2 -> Error errs2
-        | Error errs1, Error errs2 -> Error (errs1 @ errs2)
-
-     /// combine a list of Validation, applicatively
+    let result = new ResultBuilder()
