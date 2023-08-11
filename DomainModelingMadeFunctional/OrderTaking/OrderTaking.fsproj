@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include=".fs" />
+    <Compile Include="Result.fs" />
+    <Compile Include="Common.SimpleTypes.fs" />
+    <Compile Include="Common.CompoundTypes.fs" />
+    <Compile Include="PlaceOrder.PublicTypes.fs" />
+    <Compile Include="PlaceOrder.ImplemetationWithoutEffects.fs" />
+    <Compile Include="PlaceOrder.Implemtation.fs" />
+    <Compile Include="PlaceOrder.Dtos.fs" />
+    <Compile Include="PlaceOrder.Api.fs" />
+  </ItemGroup>
+
+  <ItemGroup />
+
+</Project>

@@ -11,7 +11,9 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter6", "Chapter6\Chapte
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter9", "Chapter9\Chapter9.fsproj", "{BF2402A6-855A-47B7-9803-013148F11CB0}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OrderTakingEvolvedCode", "OrderTakingEvolvedCode\OrderTakingEvolvedCode.fsproj", "{46091463-8CC2-4FB7-9316-0AAF641DA0B9}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "OrderTakingEvolvedCode", "OrderTakingEvolvedCode\OrderTakingEvolvedCode.fsproj", "{46091463-8CC2-4FB7-9316-0AAF641DA0B9}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "OrderTaking", "OrderTaking\OrderTaking.fsproj", "{0A003B90-451F-4997-86AC-926E3319A206}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{46091463-8CC2-4FB7-9316-0AAF641DA0B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46091463-8CC2-4FB7-9316-0AAF641DA0B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46091463-8CC2-4FB7-9316-0AAF641DA0B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A003B90-451F-4997-86AC-926E3319A206}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A003B90-451F-4997-86AC-926E3319A206}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A003B90-451F-4997-86AC-926E3319A206}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A003B90-451F-4997-86AC-926E3319A206}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
