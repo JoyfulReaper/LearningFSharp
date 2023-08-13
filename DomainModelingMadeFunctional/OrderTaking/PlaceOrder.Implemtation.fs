@@ -97,12 +97,12 @@ type CreateOrderAcknowledgmentLetter =
 
 type SendResult = Sent | NotSent
 
-type SendOrderAcknowledgement =
+type SendOrderAcknowledgment =
     OrderAcknowledgement -> SendResult
 
 type AcknowledgeOrder =
     CreateOrderAcknowledgmentLetter // dependency
-        -> SendOrderAcknowledgement // dependency
+        -> SendOrderAcknowledgment // dependency
         -> PricedOrder              // Input
         -> OrderAcknowledgmentSent option // output
 
