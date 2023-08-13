@@ -22,6 +22,7 @@ type UnvalidatedAddress = {
     AddressLine1 : string
     AddressLine2 : string
     AddressLine3 : string
+    AddressLine4 : string
     City : string
     ZipCode : string
 }
@@ -59,10 +60,11 @@ type PricedOrderLine = {
 
 type PricedOrder = {
     OrderId : OrderId
-    CustoemrInfo : CustomerInfo
+    CustomerInfo : CustomerInfo
     ShippingAddress : Address
     BillingAddress : Address
     AmountToBill : BillingAmount
+    Lines : PricedOrderLine list
 }
 
 /// Event to send to shipping context
