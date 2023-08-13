@@ -117,3 +117,53 @@ let placeOrderApi : PlaceOrderApi =
         // now convert from the pure domain back to a HttpResponse
         asyncResult 
         |> Async.map (workflowResultToHttpReponse)
+
+/////////////////
+
+// Messing with it a bit
+
+let displayResponse response =
+    printfn $"Response:\nStatus:{response.HttpStatusCode}\nBody:\n{response.Body}"
+
+let request = 
+    {
+        Action = "POST"
+        Uri = "https://localhost/api/placeOrder"
+        Body = """{
+                "OrderId": 1,
+	            "CustomerInfo": {
+		            "FirstName": "Kyle",
+		            "LastName": "Givler",
+		            "EmailAddress": "test@example.com"
+	            },
+	            "ShippingAddress": {
+		            "AddressLine1": "123 Main St",
+		            "City": "New York",
+		            "ZipCode": "12345"
+	            },
+	            "BillingAddress": {
+		            "AddressLine1": "321 Main St",
+		            "City": "New York",
+		            "ZipCode": "12345"
+	            },
+	            "Lines": [
+		            {
+			            "OrderLineId": "1",
+			            "ProductCode": "W0043",
+			            "Quantity": 2
+		            },
+		            {
+			            "OrderLineId": "2",
+			            "ProductCode": "W0002",
+			            "Quantity": 4
+		            }
+	            ]
+            }"""
+    }
+
+let response = 
+    request 
+    |> placeOrderApi 
+    |> Async.RunSynchronously
+
+response |> displayResponse
