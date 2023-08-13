@@ -6,7 +6,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include=".fs" />
     <Compile Include="Result.fs" />
     <Compile Include="Common.SimpleTypes.fs" />
     <Compile Include="Common.CompoundTypes.fs" />
