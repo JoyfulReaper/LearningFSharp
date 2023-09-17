@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="part5.fsx" />
+    <None Include="part4.fsx" />
+    <None Include="part3.fsx" />
+    <None Include="part2.fsx" />
+    <None Include="part1.fsx" />
+  </ItemGroup>
+
+</Project>

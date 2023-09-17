@@ -220,8 +220,12 @@ let output data =
 
 let import (fileReader:FilReader) path =
     match path |> fileReader with
-    | Ok data -> data |> parse |> output
-    | Error ex -> printfn "Error: %A" ex.Message
+    | Ok data ->
+        data 
+        |> parse 
+        |> output
+    | Error ex ->
+        printfn "Error: %A" ex.Message
 
 
 [<EntryPoint>]
