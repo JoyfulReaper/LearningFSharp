@@ -108,6 +108,13 @@ let upgradeCustomerProcedural customer =
     let increaseResult = bind increaseCreditIfVip promotedResult
     increaseResult
 
+// Result module already has map and bind functions
+let upgradeCustomerFinal customer =
+    customer
+    |> getPurchases
+    |> Result.map tryPromoteToVip // Map Result<'T, 'TError> to Result<'U, 'TError> - In this case, Result<Customer * decimal, exn> to Result<Customer, exn> using tryPromoteToVip as the function to apply to the Ok value
+    |> Result.bind increaseCreditIfVip // Binds Result<'T, 'TError> to Result<'U, 'TError> - In this case, Result<Customer, exn> to Result<Customer, exn> using increaseCreditIfVip as the function from 'T to Result<'U, 'TError>
+
 let customerVIP = { Id = 1; IsVip = true; Credit = 0.0M }
 let customerSTD = { Id = 2; IsVip = false; Credit = 100.0M }
 
@@ -139,3 +146,11 @@ let getResult' =
 
 let parsedDT = getResult |> map'' tryParseDateTime
 let parsedDT' = getResult' |> map'' tryParseDateTime
+
+//////// Error Modeling ////////
+
+type WithdrawalError =
+    | InsufficientFunds of double
+    | WrongPin
+
+let result = Error (InsufficientFunds 10.)
