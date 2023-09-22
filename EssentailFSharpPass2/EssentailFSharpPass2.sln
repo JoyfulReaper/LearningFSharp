@@ -7,15 +7,19 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "EssentailFSharpPass2", "Ess
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter2Functions", "Chapter2Functions\Chapter2Functions.fsproj", "{115329BE-1297-4A66-A7FC-A4804CE03F54}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter3NullandExceptions", "Chapter3NullandExceptions\Chapter3NullandExceptions.fsproj", "{C9748BCE-3439-4756-9EAA-D58C27164AF9}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter3NullandExceptions", "Chapter3NullandExceptions\Chapter3NullandExceptions.fsproj", "{C9748BCE-3439-4756-9EAA-D58C27164AF9}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter4OrganisingAndTesting", "Chapter4OrganisingAndTesting\Chapter4OrganisingAndTesting.fsproj", "{9F69894B-30A8-4262-9BE7-1161C7B42651}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter4OrganisingAndTesting", "Chapter4OrganisingAndTesting\Chapter4OrganisingAndTesting.fsproj", "{9F69894B-30A8-4262-9BE7-1161C7B42651}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MyProject", "MyProject\MyProject.fsproj", "{EC792889-831D-4404-8506-C0F90E41BADC}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "MyProject", "MyProject\MyProject.fsproj", "{EC792889-831D-4404-8506-C0F90E41BADC}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MyProjectTests", "MyProjectTests\MyProjectTests.fsproj", "{4928A339-9B14-4C6E-A108-7B59BCC5FACE}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "MyProjectTests", "MyProjectTests\MyProjectTests.fsproj", "{4928A339-9B14-4C6E-A108-7B59BCC5FACE}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter5Collections", "Chapter5Collections\Chapter5Collections.fsproj", "{6BDC9581-3CAE-47E0-B83C-BC99D75A0B57}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Chapter5Collections", "Chapter5Collections\Chapter5Collections.fsproj", "{6BDC9581-3CAE-47E0-B83C-BC99D75A0B57}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MyProject2", "MyProject2\MyProject2.fsproj", "{03EB8CBE-1547-4BC3-84A6-3E572061D78E}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "MyProjectTests2", "MyProjectTests2\MyProjectTests2.fsproj", "{B0E2B2DA-1834-458D-8D10-FDE862A5E3F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,6 +55,14 @@ Global
 		{6BDC9581-3CAE-47E0-B83C-BC99D75A0B57}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6BDC9581-3CAE-47E0-B83C-BC99D75A0B57}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6BDC9581-3CAE-47E0-B83C-BC99D75A0B57}.Release|Any CPU.Build.0 = Release|Any CPU
+		{03EB8CBE-1547-4BC3-84A6-3E572061D78E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{03EB8CBE-1547-4BC3-84A6-3E572061D78E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{03EB8CBE-1547-4BC3-84A6-3E572061D78E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{03EB8CBE-1547-4BC3-84A6-3E572061D78E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E2B2DA-1834-458D-8D10-FDE862A5E3F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E2B2DA-1834-458D-8D10-FDE862A5E3F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E2B2DA-1834-458D-8D10-FDE862A5E3F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E2B2DA-1834-458D-8D10-FDE862A5E3F0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
