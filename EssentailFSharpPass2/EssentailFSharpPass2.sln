@@ -25,6 +25,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter6ReadingDataFromFile
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter7ActivePatterns", "Chapter7ActivePatterns\Chapter7ActivePatterns.fsproj", "{3E8BC043-2F7E-480F-8C96-2A148C484B60}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter8FunctionalValidation", "Chapter8FunctionalValidation\Chapter8FunctionalValidation.fsproj", "{9AAB3E50-5AF5-45BB-9F11-3BA760B6D332}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{3E8BC043-2F7E-480F-8C96-2A148C484B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E8BC043-2F7E-480F-8C96-2A148C484B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E8BC043-2F7E-480F-8C96-2A148C484B60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AAB3E50-5AF5-45BB-9F11-3BA760B6D332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AAB3E50-5AF5-45BB-9F11-3BA760B6D332}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AAB3E50-5AF5-45BB-9F11-3BA760B6D332}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AAB3E50-5AF5-45BB-9F11-3BA760B6D332}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
