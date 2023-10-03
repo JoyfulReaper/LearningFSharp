@@ -1,6 +1,7 @@
 ﻿open System
 open System.IO
 open System.Text.RegularExpressions
+open FsToolkit.ErrorHandling.ValidationCE
 
 type Customer = {
     CustomerId : string
@@ -130,27 +131,40 @@ let create customerId email isEligible isRegistered dateRegistered discount =
     }
     
 let validate (input:Customer) : Result<ValidatedCustomer, ValidationError list> =
-    let customerId = input.CustomerId |> validateCustomerId
-    let email = input.Email |> validateEmail
-    let isEligible = input.IsEligible |> validateIsEligible
-    let isRegistered = input.IsRegistered |> validateIsRegistered
-    let dateRegistered = input.DateRegistered |> validateDateRegistered
-    let discount = input.Discount |> validateDiscount
-    
-    let errors =
-        [
-            customerId |> getError
-            email |> getError
-            isEligible |> getError
-            isRegistered |> getError
-            dateRegistered |> getError
-            discount |> getError
-        ]
-        |> List.concat
-    
-    match errors with
-    | [] -> Ok (create (customerId |> getValue) (email |> getValue) (isEligible |> getValue) (isRegistered |> getValue) (dateRegistered |> getValue) (discount |> getValue))
-    | _ -> Error errors
+    (* If we had used let rather than and, the code would have only returned the first error found and then
+    would not have the other lines as it would be on the Error track. The style before 'and' was introduced
+    is referred to as 'monadic', as opposed to the 'applicative' style we are now using where the use of and
+    forces the code to run all of the validation, even if there are validation errors reported. The final
+    function to create a ValidatedCustomer is only called if there are no errors. It ends up doing exactly
+    what we did initially but much more elegantly! *)
+    validation {
+        let! customerId =
+            input.CustomerId
+            |> validateCustomerId
+            |> Result.mapError (fun ex -> [ex])
+        and! email =
+            input.Email
+            |> validateEmail
+            |> Result.mapError (fun ex -> [ex])
+        and! isEligible =
+            input.IsEligible
+            |> validateIsEligible
+            |> Result.mapError (fun ex -> [ex])
+        and! isRegistered =
+            input.IsRegistered
+            |> validateIsRegistered
+            |> Result.mapError (fun ex -> [ex])
+        and! dateRegistered =
+            input.DateRegistered
+            |> validateDateRegistered
+            |> Result.mapError (fun ex -> [ex])
+        and! discount =
+            input.Discount
+            |> validateDiscount
+            |> Result.mapError List.singleton
+        
+        return create customerId email isEligible isRegistered dateRegistered discount   
+    }
 
 let parse (data:string seq) =
     data

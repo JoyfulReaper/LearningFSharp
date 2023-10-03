@@ -11,4 +11,8 @@
         <None Include="B4FunctionalValidationTheFSWay.fsx" />
     </ItemGroup>
 
+    <ItemGroup>
+      <PackageReference Include="FsToolkit.ErrorHandling" Version="4.9.0" />
+    </ItemGroup>
+
 </Project>
