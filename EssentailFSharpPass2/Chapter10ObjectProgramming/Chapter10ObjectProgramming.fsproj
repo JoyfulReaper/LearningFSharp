@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="Program.fs"/>
+        <None Include="FizzBuzz.fsx" />
+        <None Include="Coordinate.fsx" />
+        <None Include="RecentlyUsed.fsx" />
+        <None Include="expression.fsx" />
+    </ItemGroup>
+
+</Project>
