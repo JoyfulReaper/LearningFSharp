@@ -35,6 +35,8 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter11Recursion", "Chapt
 EndProject
 Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter12ComputationExpressions", "Chapter12ComputationExpressions\Chapter12ComputationExpressions.fsproj", "{C193C2E3-ECFE-42E9-9525-65363CA8B24D}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chapter13GiraffeIntro", "Chapter13GiraffeIntro\Chapter13GiraffeIntro.fsproj", "{6627BDA4-C489-411E-84AE-246CDF3EAD1D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{C193C2E3-ECFE-42E9-9525-65363CA8B24D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C193C2E3-ECFE-42E9-9525-65363CA8B24D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C193C2E3-ECFE-42E9-9525-65363CA8B24D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6627BDA4-C489-411E-84AE-246CDF3EAD1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6627BDA4-C489-411E-84AE-246CDF3EAD1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6627BDA4-C489-411E-84AE-246CDF3EAD1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6627BDA4-C489-411E-84AE-246CDF3EAD1D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
